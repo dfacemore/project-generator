@@ -15,7 +15,8 @@ public class BeanConfig {
     @Bean
     public XML producerXML() {
         return new XMLDocument(
-                new File("src/main/resources/kafka/producer.xml")
+                getClass().getResourceAsStream("/kafka/producer.xml")
+                        .readAllBytes()
         );
     }
 
